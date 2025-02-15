@@ -21,7 +21,6 @@ function TopNav() {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  console.log(`hello! `);
   return (
     <html
       lang="en"
