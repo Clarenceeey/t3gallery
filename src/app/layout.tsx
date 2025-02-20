@@ -17,7 +17,12 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  modal,
+}: {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+}) {
+  console.log("Rendering root layout - modal prop", modal);
   return (
     <ClerkProvider>
       <html
@@ -37,6 +42,8 @@ export default async function RootLayout({
         <body className="w-full">
           <TopNav />
           {children}
+          {modal}
+          <div id="modal-root" />
         </body>
       </html>
     </ClerkProvider>
