@@ -22,13 +22,9 @@ export default async function RootLayout({
   children: React.ReactNode;
   modal: React.ReactNode;
 }) {
-  console.log("Rendering root layout - modal prop", modal);
   return (
     <ClerkProvider>
-      <html
-        lang="en"
-        className={`flex-column flex w-full gap-4 ${GeistSans.variable}`}
-      >
+      <html lang="en">
         <NextSSRPlugin
           /**
            * The `extractRouterConfig` will extract **only** the route configs
@@ -39,9 +35,12 @@ export default async function RootLayout({
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
 
-        <body className="w-full">
-          <TopNav />
-          {children}
+        <body className={`font-sans ${GeistSans.variable}`}>
+          <div className="grid-rows-[auto, 1fr] grid h-screen">
+            <TopNav />
+            <main className="overflow-y-scroll">{children}</main>
+          </div>
+
           {modal}
           <div id="modal-root" />
         </body>
