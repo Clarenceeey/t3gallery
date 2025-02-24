@@ -36,9 +36,11 @@ export default async function RootLayout({
         />
 
         <body className={`font-sans ${GeistSans.variable}`}>
-          <div className="grid-rows-[auto, 1fr] grid h-screen">
+          <div className="flex h-screen flex-col">
             <TopNav />
-            <main className="overflow-y-scroll">{children}</main>
+            <main className="h-full min-h-0 w-full flex-1 overflow-y-auto">
+              {children}
+            </main>
           </div>
 
           {modal}
