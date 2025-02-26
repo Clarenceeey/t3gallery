@@ -76,6 +76,8 @@ export function SimpleUploadButton() {
 
   const { inputProps } = useUploadThingInputProps("imageUploader", {
     onUploadBegin() {
+      console.log("upload begin!");
+
       posthog.capture("upload_begin");
       toast(
         <div className="flex flex-row items-center gap-2">
@@ -91,6 +93,13 @@ export function SimpleUploadButton() {
       toast.dismiss("upload-begin");
       toast("Upload complete!");
       router.refresh();
+    },
+    onUploadError(error) {
+      console.log("upload error before toast");
+      // toast.dismiss("upload-begin");
+      toast.error("Upload failed");
+      posthog.capture("upload_error", { error });
+      console.log("upload error after toast");
     },
   });
   return (
