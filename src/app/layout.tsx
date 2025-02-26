@@ -35,7 +35,7 @@ export default async function RootLayout({
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
 
-        <body className={`font-sans ${GeistSans.variable}`}>
+        <body className={`font-sans ${GeistSans.variable} dark`}>
           <div className="flex h-screen flex-col">
             <TopNav />
             <main className="h-full min-h-0 w-full flex-1 overflow-y-auto">
